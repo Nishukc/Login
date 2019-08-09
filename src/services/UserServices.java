@@ -26,9 +26,9 @@ public class UserServices {
             while (rs.next()) {
                 user = new User();
                 user.setId(rs.getInt("id"));
-                user.setBookname(rs.getString("bookname"));
-                user.setAuthor(rs.getString("author"));
-                user.setVersion(rs.getInt("version"));
+                user.setName(rs.getString("name"));
+                user.setAddress(rs.getString("address"));
+                user.setPassword(rs.getString("password"));
 
             }
 
@@ -49,11 +49,11 @@ public class UserServices {
             while (rs.next()) {
                 User user = new User();
                 user.setId(rs.getInt("id"));
-                user.setBookname(rs.getString("bookname"));
-                user.setAuthor(rs.getString("Author"));
-                user.setVersion(rs.getInt("version"));
+                user.setName(rs.getString("Name"));
+                user.setAddress(rs.getString("Address"));
+                user.setPassword(rs.getString("Password"));
 
-                //ading user to list
+                //adding user to list
                 userList.add(user);
 
             }
@@ -64,19 +64,19 @@ public class UserServices {
     }
 
     public void add(User user) {
-        String query = "insert into user (id, bookname, author, version) values(????)";
+        String query = "insert into user (id, name, address, password) values(????)";
         PreparedStatement preparedStatement = new DatabaseConnection().getPreparedStatement(query);
 
         try {
-            preparedStatement.setInt(1, user.getVersion());
-            preparedStatement.setString(1, user.getBookname());
-            preparedStatement.setString(1, user.getAuthor());
+            preparedStatement.setString(1, user.getName());
+            preparedStatement.setString(2, user.getAddress());
+            preparedStatement.setString(3, user.getPassword());
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-
+//test test test test test test test test test test tes testetststs
     }
 
 }
